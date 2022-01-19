@@ -4,10 +4,42 @@
     box-sizing: border-box
 
 body
-    background-color: #292929
+    //background-color: #292929
+    background-image: url(../img/bgMarvelDark.jpg)
+    background-attachment: fixed
     color: #7d7d7d
     font-family: 'Oswald', sans-serif
     font-size: 16px
+
+header
+    position: fixed
+    top: 0
+    margin: 0 auto
+    width: 100%
+    background: #100a1f
+    opacity: 0.97
+    //padding: 20px
+    .cabecera
+        max-width: 1200px
+        margin: 5px auto
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: space-around
+        align-items: baseline
+        .btnInicio
+            text-decoration: none
+            font-size: 40px
+        .txtBuscador
+            width: 350px
+            height: 40px
+            font-size: 30px
+            text-align: center
+            border-radius: 10px
+            border: none
+        .btnFavoritos
+            font-size: 40px
+
 
 .contenedor
     max-width: 1200px
@@ -17,15 +49,41 @@ body
     flex-direction: row
     flex-wrap: wrap
     justify-content: space-between
+    padding-top: 120px
     .superHeroes
         width: 23%
         background: black    
         margin-bottom: 30px    
         .thumbnail
             width: 100%
+            //width: auto
+            height: 250px
             border-radius: 2%
             //max-height: 300px
             margin: 0 auto
         .nombreHeroe
             font-size: 1em
             text-align: center
+
+
+.paginacion
+    position: fixed
+    bottom: 0
+    background: #100a1f
+    width: 100%
+    display: flex
+    justify-content: center
+    gap: 30px //espacio entre los botones de 20px
+    padding: 10px
+    button
+        cursor: pointer
+        border: none
+        display: flex
+        align-items: center
+        justify-content: center
+        text-align: center
+        height: 50px
+        width: 100px
+        border-radius: 30px
+        background: #241744
+        color: #fff

@@ -5,10 +5,44 @@
 }
 
 body {
-  background-color: #292929;
+  background-image: url(../img/bgMarvelDark.jpg);
+  background-attachment: fixed;
   color: #7d7d7d;
   font-family: "Oswald", sans-serif;
   font-size: 16px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  margin: 0 auto;
+  width: 100%;
+  background: #100a1f;
+  opacity: 0.97;
+}
+header .cabecera {
+  max-width: 1200px;
+  margin: 5px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+}
+header .cabecera .btnInicio {
+  text-decoration: none;
+  font-size: 40px;
+}
+header .cabecera .txtBuscador {
+  width: 350px;
+  height: 40px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+}
+header .cabecera .btnFavoritos {
+  font-size: 40px;
 }
 
 .contenedor {
@@ -19,6 +53,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-top: 120px;
 }
 .contenedor .superHeroes {
   width: 23%;
@@ -27,12 +62,37 @@ body {
 }
 .contenedor .superHeroes .thumbnail {
   width: 100%;
+  height: 250px;
   border-radius: 2%;
   margin: 0 auto;
 }
 .contenedor .superHeroes .nombreHeroe {
   font-size: 1em;
   text-align: center;
+}
+
+.paginacion {
+  position: fixed;
+  bottom: 0;
+  background: #100a1f;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
+}
+.paginacion button {
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  border-radius: 30px;
+  background: #241744;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

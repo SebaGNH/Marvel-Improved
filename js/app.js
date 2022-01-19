@@ -20,7 +20,9 @@ const cargarProyecto = async () => {
         
         resultados.forEach(marvelHeroes => {
             const filtroImagenNoEncontrada = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available";
-            if (marvelHeroes.thumbnail.path != filtroImagenNoEncontrada) {
+            const filtroImagenNoEncontrada2 = "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708";
+
+            if (marvelHeroes.thumbnail.path != filtroImagenNoEncontrada && marvelHeroes.thumbnail.path != filtroImagenNoEncontrada2) {
                 
                 //console.log(marvelHeroes);
                 const imagen = marvelHeroes.thumbnail.path +"."+marvelHeroes.thumbnail.extension;
@@ -47,7 +49,7 @@ const cargarProyecto = async () => {
             if (ultimoHeroe) {
                 observador.unobserve(ultimoHeroe);
             }
-            ultimoHeroe = heroesEnPantalla[heroesEnPantalla.length -8]
+            ultimoHeroe = heroesEnPantalla[heroesEnPantalla.length -12] /*  <-- Pongo 12 ya que la api es un poco lenta */
             observador.observe(ultimoHeroe);
         }
 
