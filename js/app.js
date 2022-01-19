@@ -1,40 +1,75 @@
 "use strict"
-const limite = 10;
-const offSet = 0;
+const limite = 50;
+let offSet = 0;  /*  <-- Total de 1559 */
+let listaSuperHeroes = "";
+let ultimoHeroe;
 
 
 const cargarProyecto = async () => {
     try {
-        let apikey = `https://gateway.marvel.com/v1/public/characters?limit=${limite}&offset=${offSet}&ts=1&apikey=eaa98daf4d86236acb4de698f6808297&hash=c0819d4ad93eb938110b0d68f54532f0`;
+        let apikey = `https://gateway.marvel.com/v1/public/characters?limit=${limite}&offset=${offSet}&orderBy=modified&ts=1&apikey=eaa98daf4d86236acb4de698f6808297&hash=c0819d4ad93eb938110b0d68f54532f0`;
         const respuesta = await fetch(apikey);
         //console.log(respuesta);
         const datos = await respuesta.json();
         //console.log(datos);
-        /*  <-- Total de 1559 */
+        
         const resultados = datos.data.results;
         //console.log(resultados); /*  <-- Muestra arreglo con super Heroes */
         //console.log(resultados[1]); /*  <-- Muestra sol primer resultado */
 
-        let listaSuperHeroes = "";
+        
         resultados.forEach(marvelHeroes => {
-            //console.log(marvelHeroes);
-            const imagen = marvelHeroes.thumbnail.path +"."+marvelHeroes.thumbnail.extension;
-            
-            listaSuperHeroes += `
-            <div class="superHeroes" id="superHeroes">
+            const filtroImagenNoEncontrada = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available";
+            if (marvelHeroes.thumbnail.path != filtroImagenNoEncontrada) {
+                
+                //console.log(marvelHeroes);
+                const imagen = marvelHeroes.thumbnail.path +"."+marvelHeroes.thumbnail.extension;
+                
+                listaSuperHeroes += `
+                <div class="superHeroes" id="superHeroes">
                 <img class="thumbnail" src="${imagen}" alt="">
                 <h2 class="nombreHeroe" id="nombreHeroe">${marvelHeroes.name}</h2>
-            </div>
-            `;
+                </div>
+                `;
+            }
         });
 
+
+
+
         document.getElementById("contenedor").innerHTML = listaSuperHeroes;
+
+
+        const heroesEnPantalla = document.querySelectorAll('.contenedor .superHeroes');
+        //console.log(heroesEnPantalla);
+
+        if (offSet < 1500) {
+            if (ultimoHeroe) {
+                observador.unobserve(ultimoHeroe);
+            }
+            ultimoHeroe = heroesEnPantalla[heroesEnPantalla.length -8]
+            observador.observe(ultimoHeroe);
+        }
 
     } catch (error) {
         console.log(error);
     }
 }
 
+
+let observador = new IntersectionObserver((entradas, observador)=>{
+    entradas.forEach(entrada => {
+        if (entrada.isIntersecting) {
+            //offSet +50;
+            offSet = offSet + 50;
+            cargarProyecto();
+            //console.log(offSet);
+        }
+    })
+},{
+    rootMargin: "0px 0px 0px 0px",
+    threshold: 0.5
+});
 
 
 

@@ -8,12 +8,31 @@ body {
   background-color: #292929;
   color: #7d7d7d;
   font-family: "Oswald", sans-serif;
+  font-size: 16px;
 }
 
 .contenedor {
-  min-width: 1200;
+  max-width: 1200px;
   width: 90%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.contenedor .superHeroes {
+  width: 23%;
+  background: black;
+  margin-bottom: 30px;
+}
+.contenedor .superHeroes .thumbnail {
+  width: 100%;
+  border-radius: 2%;
+  margin: 0 auto;
+}
+.contenedor .superHeroes .nombreHeroe {
+  font-size: 1em;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
