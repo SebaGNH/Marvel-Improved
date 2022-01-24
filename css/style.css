@@ -43,6 +43,7 @@ header .cabecera .txtBuscador {
 }
 header .cabecera .btnFavoritos {
   font-size: 40px;
+  visibility: hidden;
 }
 
 .contenedor {
