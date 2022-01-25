@@ -139,7 +139,7 @@ cargarProyecto();
 
 
 
-txtBuscador.addEventListener("keyup", (e)=>{
+txtBuscador.addEventListener("keyup", (e)=>{ //keyup
     //const valorBuscador = document.getElementById("txtBuscador").value; 
     const valorBuscador = e.target.value;
     
