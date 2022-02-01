@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Marvel:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -5,10 +6,14 @@
 }
 
 body {
+  background-color: #292929;
   background-image: url(../img/bgMarvelDark.jpg);
   background-attachment: fixed;
+  background-attachment: cover;
+  background-position: cover;
+  background-repeat: no-repeat;
   color: #7d7d7d;
-  font-family: "Oswald", sans-serif;
+  font-family: "Marvel", sans-serif;
   font-size: 16px;
 }
 
@@ -41,6 +46,10 @@ header .cabecera .txtBuscador {
   border-radius: 10px;
   border: none;
 }
+header .cabecera .txtBuscador::placeholder {
+  font-family: "Font Awesome 5 Free", "Marvel", sans-serif;
+  font-weight: 600;
+}
 header .cabecera .btnFavoritos {
   font-size: 40px;
   visibility: hidden;
@@ -58,7 +67,6 @@ header .cabecera .btnFavoritos {
 }
 .contenedor .superHeroes {
   width: 23%;
-  background: black;
   margin-bottom: 30px;
 }
 .contenedor .superHeroes .thumbnail {
@@ -66,10 +74,15 @@ header .cabecera .btnFavoritos {
   height: 250px;
   border-radius: 2%;
   margin: 0 auto;
+  opacity: 0.9;
+}
+.contenedor .superHeroes .thumbnail:hover {
+  opacity: 1;
 }
 .contenedor .superHeroes .nombreHeroe {
-  font-size: 1em;
+  font-size: 1.7em;
   text-align: center;
+  background: black;
 }
 
 .paginacion {

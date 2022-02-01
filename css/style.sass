@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Marvel:wght@400;700&display=swap')
+
 *
     margin: 0
     padding: 0
     box-sizing: border-box
 
 body
-    //background-color: #292929
+    background-color: #292929
     background-image: url(../img/bgMarvelDark.jpg)
     background-attachment: fixed
+    background-attachment: cover
+    background-position: cover
+    background-repeat: no-repeat
     color: #7d7d7d
-    font-family: 'Oswald', sans-serif
+    font-family: 'Marvel', sans-serif
     font-size: 16px
 
 header
@@ -37,6 +42,10 @@ header
             text-align: center
             border-radius: 10px
             border: none
+            &::placeholder // Solo aplicará al placeholder
+                font-family: "Font Awesome 5 Free", 'Marvel', sans-serif
+                font-weight: 600
+                //content: "\f007"
         .btnFavoritos
             font-size: 40px
             visibility: hidden 
@@ -53,7 +62,7 @@ header
     padding-top: 120px
     .superHeroes
         width: 23%
-        background: black    
+        //background: black 
         margin-bottom: 30px    
         .thumbnail
             width: 100%
@@ -62,9 +71,13 @@ header
             border-radius: 2%
             //max-height: 300px
             margin: 0 auto
+            opacity: .9
+            &:hover
+                opacity: 1
         .nombreHeroe
-            font-size: 1em
+            font-size: 1.7em
             text-align: center
+            background: black
 
 
 .paginacion

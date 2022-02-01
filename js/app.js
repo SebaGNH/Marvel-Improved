@@ -9,11 +9,6 @@ const txtBuscador = document.getElementById("txtBuscador")
 txtBuscador.value = "";
 
 
-
-
-
-
-
 const cargarProyecto = async () => {
     try {
         let apikey = `https://gateway.marvel.com/v1/public/characters?limit=${limite}&offset=${offSet}&orderBy=modified&ts=1&apikey=eaa98daf4d86236acb4de698f6808297&hash=c0819d4ad93eb938110b0d68f54532f0`;
@@ -25,7 +20,7 @@ const cargarProyecto = async () => {
         const resultados = datos.data.results;
         //console.log(resultados); /*  <-- Muestra arreglo con super Heroes */
         //console.log(resultados[1]); /*  <-- Muestra sol primer resultado */
-        txtBuscador.value = "";
+        //txtBuscador.value = "";
         resultados.forEach(marvelHeroes => {
             const filtroImagenNoEncontrada = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available";
             const filtroImagenNoEncontrada2 = "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708";
@@ -120,11 +115,7 @@ const buscador = async(valorBuscador)=>{
         console.log(error);
     }
 }
-
-//document.getElementById("txtBuscador").addEventListener("keydown",buscador())
 /*-- Fin  <-- Buscador ------------------------------------*/
-
-
 
 
 
@@ -138,21 +129,18 @@ cargarProyecto();
 
 
 
-
-txtBuscador.addEventListener("keyup", (e)=>{ //keyup
-    //const valorBuscador = document.getElementById("txtBuscador").value; 
+txtBuscador.addEventListener("keyup", (e)=>{ 
     const valorBuscador = e.target.value;
-    
-    if (valorBuscador != "") {
+    console.log(valorBuscador.length);
+
+    if (valorBuscador.length >= 2 ) {
         console.log(valorBuscador);
         buscador(valorBuscador);
     } else {
-        txtBuscador.value = "";
         offSet = 0;
         listaSuperHeroes ="";
         cargarProyecto();
     }
-
 })
 
 
