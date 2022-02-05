@@ -24,6 +24,7 @@ header {
   width: 100%;
   background: #100a1f;
   opacity: 0.97;
+  z-index: 1;
 }
 header .cabecera {
   max-width: 1200px;
@@ -78,6 +79,7 @@ header .cabecera .btnFavoritos {
 }
 .contenedor .superHeroes .thumbnail:hover {
   opacity: 1;
+  z-index: -1;
 }
 .contenedor .superHeroes .nombreHeroe {
   font-size: 1.7em;
